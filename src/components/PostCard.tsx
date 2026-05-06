@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Post } from "@/lib/content";
+import type { Post } from "@/lib/content";
+import { Folder } from "lucide-react";
 
 interface PostCardProps {
   post: Post;
@@ -22,6 +23,15 @@ export default function PostCard({ post }: PostCardProps) {
       )}
       <div className="flex items-center gap-2 text-xs text-stone-500 dark:text-stone-400">
         <span>{post.date}</span>
+        {post.group && (
+          <>
+            <span>·</span>
+            <span className="inline-flex items-center gap-0.5">
+              <Folder size={12} />
+              {post.group}
+            </span>
+          </>
+        )}
         {post.tags.length > 0 && (
           <>
             <span>·</span>

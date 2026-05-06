@@ -17,7 +17,14 @@
       "Bash(npx tsx *)",
       "Bash(node -e \"const path=require\\('path'\\); const fs=require\\('fs'\\); const d=path.join\\(process.cwd\\(\\),'content'\\); console.log\\(d, fs.existsSync\\(d\\)\\); console.log\\(fs.readdirSync\\(d\\)\\); const e=path.join\\(d,'essay'\\); console.log\\(e, fs.existsSync\\(e\\)\\); if\\(fs.existsSync\\(e\\)\\) console.log\\(fs.readdirSync\\(e\\)\\);\")",
       "Bash(npx serve *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(gh auth *)",
+      "Bash(winget install *)",
+      "Bash(gh --version)",
+      "Bash(git branch *)",
+      "Bash(git remote *)",
+      "Bash(git push *)"
     ],
     "additionalDirectories": [
       "d:\\学习"
