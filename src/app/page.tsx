@@ -1,101 +1,105 @@
-import Image from "next/image";
+import Link from "next/link";
+import { getRecentPosts } from "@/lib/content";
+import PostCard from "@/components/PostCard";
+import { Globe, Mail, Camera, TrendingUp } from "lucide-react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const recentBlogs = getRecentPosts("blog", 3);
+  const recentEssays = getRecentPosts("essay", 2);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+  return (
+    <div className="mx-auto max-w-5xl px-4 py-12">
+      {/* Hero */}
+      <section className="flex flex-col items-center py-16 text-center">
+        <div className="mb-6 h-24 w-24 rounded-full bg-stone-200 dark:bg-stone-700" />
+        <h1 className="text-3xl font-bold text-stone-900 dark:text-stone-50">你的名字</h1>
+        <p className="mt-3 max-w-md text-stone-600 dark:text-stone-400">
+          一句话介绍自己，可以是职业、兴趣或座右铭。
+        </p>
+        <div className="mt-6 flex gap-4">
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
+            className="rounded-full bg-stone-100 p-3 text-stone-600 transition-colors hover:bg-indigo-50 hover:text-indigo-500 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-indigo-900/30 dark:hover:text-indigo-400"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+            <Globe size={20} />
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:email@example.com"
+            className="rounded-full bg-stone-100 p-3 text-stone-600 transition-colors hover:bg-indigo-50 hover:text-indigo-500 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-indigo-900/30 dark:hover:text-indigo-400"
           >
-            Read our docs
+            <Mail size={20} />
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Recent Blogs */}
+      <section className="py-12">
+        <div className="mb-6 flex items-center justify-between">
+          <h2 className="text-2xl font-semibold text-stone-900 dark:text-stone-50">最近博客</h2>
+          <Link
+            href="/blog"
+            className="text-sm text-indigo-500 hover:text-indigo-600 dark:text-indigo-400 dark:hover:text-indigo-300"
+          >
+            查看全部 →
+          </Link>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {recentBlogs.map((post) => (
+            <PostCard key={post.slug} post={post} />
+          ))}
+        </div>
+      </section>
+
+      {/* Recent Essays */}
+      <section className="py-12">
+        <div className="mb-6 flex items-center justify-between">
+          <h2 className="text-2xl font-semibold text-stone-900 dark:text-stone-50">最近随笔</h2>
+          <Link
+            href="/essays"
+            className="text-sm text-indigo-500 hover:text-indigo-600 dark:text-indigo-400 dark:hover:text-indigo-300"
+          >
+            查看全部 →
+          </Link>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2">
+          {recentEssays.map((post) => (
+            <PostCard key={post.slug} post={post} />
+          ))}
+        </div>
+      </section>
+
+      {/* Quick Links */}
+      <section className="py-12">
+        <h2 className="mb-6 text-2xl font-semibold text-stone-900 dark:text-stone-50">快速入口</h2>
+        <div className="grid gap-6 md:grid-cols-2">
+          <Link
+            href="/photos"
+            className="group flex items-center gap-4 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-indigo-200 hover:shadow-md dark:border-stone-700 dark:bg-stone-800 dark:hover:border-indigo-800"
+          >
+            <div className="rounded-xl bg-indigo-50 p-3 text-indigo-500 dark:bg-indigo-900/30 dark:text-indigo-400">
+              <Camera size={24} />
+            </div>
+            <div>
+              <h3 className="font-semibold text-stone-900 dark:text-stone-50">照片墙</h3>
+              <p className="text-sm text-stone-500 dark:text-stone-400">记录生活中的美好瞬间</p>
+            </div>
+          </Link>
+          <Link
+            href="/fund"
+            className="group flex items-center gap-4 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-indigo-200 hover:shadow-md dark:border-stone-700 dark:bg-stone-800 dark:hover:border-indigo-800"
+          >
+            <div className="rounded-xl bg-indigo-50 p-3 text-indigo-500 dark:bg-indigo-900/30 dark:text-indigo-400">
+              <TrendingUp size={24} />
+            </div>
+            <div>
+              <h3 className="font-semibold text-stone-900 dark:text-stone-50">基金</h3>
+              <p className="text-sm text-stone-500 dark:text-stone-400">投资理财记录</p>
+            </div>
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

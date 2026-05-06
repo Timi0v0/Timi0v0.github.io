@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv 方案文档.md ../方案文档.md.bak)",
+      "Bash(npx create-next-app@14 . --typescript --tailwind --eslint --app --src-dir --no-import-alias --use-npm)",
+      "Bash(npx create-next-app@14 my-site --typescript --tailwind --eslint --app --src-dir --no-import-alias --use-npm)",
+      "Bash(cp -r ../my-site/* .)",
+      "Bash(cp -r ../my-site/.* .)",
+      "Bash(rm -rf ../my-site ../方案文档.md.bak)",
+      "Bash(ls -la && ls -la ../my-site 2>/dev/null || echo \"my-site not found in parent\")",
+      "Read(//d//**)",
+      "Bash(cp -r my-site/* 个人网站/)",
+      "Bash(cp -r my-site/.[!.]* 个人网站/)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(node -e \"const { getPostsByType } = require\\('./src/lib/content.ts'\\); console.log\\(getPostsByType\\('essay'\\)\\);\")",
+      "Bash(npx tsx *)",
+      "Bash(node -e \"const path=require\\('path'\\); const fs=require\\('fs'\\); const d=path.join\\(process.cwd\\(\\),'content'\\); console.log\\(d, fs.existsSync\\(d\\)\\); console.log\\(fs.readdirSync\\(d\\)\\); const e=path.join\\(d,'essay'\\); console.log\\(e, fs.existsSync\\(e\\)\\); if\\(fs.existsSync\\(e\\)\\) console.log\\(fs.readdirSync\\(e\\)\\);\")",
+      "Bash(npx serve *)",
+      "Bash(git add *)"
+    ],
+    "additionalDirectories": [
+      "d:\\学习"
+    ]
+  }
+}
