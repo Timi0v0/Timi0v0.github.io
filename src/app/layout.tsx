@@ -14,6 +14,7 @@ const notoSerif = Noto_Serif_SC({
 export const metadata: Metadata = {
   title: { default: "个人网站", template: "%s | 个人网站" },
   description: "一个使用 Next.js 构建的个人网站，包含博客、随笔、照片墙等内容。",
+  icons: { icon: "/favicon.ico" },
 };
 
 export default function RootLayout({
