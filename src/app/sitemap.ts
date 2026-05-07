@@ -18,12 +18,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === "/" ? 1 : 0.8,
   }));
 
-  const postRoutes = posts.map((post) => ({
-    url: `${baseUrl}/${post.type === "blog" ? "blog" : "essays"}/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
+  const postRoutes = posts
+    .filter((post) => post.date)
+    .map((post) => ({
+      url: `${baseUrl}/${post.type === "blog" ? "blog" : "essays"}/${post.slug}`,
+      lastModified: new Date(post.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }));
 
   return [...staticRoutes, ...postRoutes];
 }
