@@ -30,7 +30,10 @@
       "Bash(curl -s http://localhost:3001/photos/)",
       "Bash(git stash *)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3003/photos/)",
-      "Bash(curl -s http://localhost:3003/photos/)"
+      "Bash(curl -s http://localhost:3003/photos/)",
+      "Bash(sudo nginx -t)",
+      "Bash(sudo tail -20 /var/log/nginx/error.log)",
+      "Bash(tar -czf deploy.tar.gz -C out .)"
     ],
     "additionalDirectories": [
       "d:\\学习"

@@ -1,0 +1,17 @@
+{
+  "name": "你的名字",
+  "bio": "一句话介绍自己，可以是职业、兴趣或座右铭。",
+  "avatar": "",
+  "socials": [
+    {
+      "platform": "github",
+      "url": "https://github.com",
+      "icon": "Globe"
+    },
+    {
+      "platform": "email",
+      "url": "mailto:email@example.com",
+      "icon": "Mail"
+    }
+  ]
+}
